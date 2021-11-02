@@ -56,14 +56,13 @@ if __name__ == "__main__":
             # Emulate that we read temperature and humidity from a sensor, for example
             # a DHT22 sensor.  Add a little random variation so we can see that values
             # sent/received fluctuate a bit.
-            temperature = normalvariate(23.0, 0.5)
-            humidity = normalvariate(62.0, 0.5)
-            print(f'Sensor values: temperature={temperature}, humidity={humidity}')
+            msg = 'Hello RX!'
+            print(f'Sending line: Hello RX!')
 
             # Pack temperature and humidity into a byte buffer (payload) using a protocol 
             # signature of 0x01 so that the receiver knows that the bytes we are sending 
             # are a temperature and a humidity (see "simple-receiver.py").
-            payload = struct.pack("<Bff", 0x01, temperature, humidity)
+            payload = struct.pack("<Bff", 0x01, msg)
 
             # Send the payload to the address specified above.
             nrf.reset_packages_lost()
@@ -72,8 +71,8 @@ if __name__ == "__main__":
                 nrf.wait_until_sent()
             except TimeoutError:
                 print('Timeout waiting for transmission to complete.')
-                # Wait 10 seconds before sending the next reading.
-                time.sleep(10)
+                # Wait 4 seconds before sending the next reading.
+                time.sleep(4)
                 continue
             
             if nrf.get_packages_lost() == 0:
@@ -81,8 +80,8 @@ if __name__ == "__main__":
             else:
                 print(f"Error: lost={nrf.get_packages_lost()}, retries={nrf.get_retries()}")
 
-            # Wait 10 seconds before sending the next reading.
-            time.sleep(10)
+            # Wait 4 seconds before sending the next reading.
+            time.sleep(4)
     except:
         traceback.print_exc()
         nrf.power_down()
