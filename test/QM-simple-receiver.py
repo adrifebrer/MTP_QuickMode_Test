@@ -91,11 +91,11 @@ if __name__ == "__main__":
                         received = a + b
                     else:
                         received += a + b
-                    print(received)
+                    # print(received)
                     if (count % 2 == 0):
                         r_decoded = received.decode("utf-32")
                         print(r_decoded)
-                        print(r_decoded[-1:])
+                        # print(r_decoded[-1:])
                         if (r_decoded[-1:]=='%'):
                             print("DONE")
                             filename = "/home/pi/working-directory/a.txt"
@@ -103,10 +103,10 @@ if __name__ == "__main__":
                             outfile.write(r_decoded[:-1])
                             outfile.close()
                             os.system("bash /home/pi/write_usb.sh")
+                    return
                     
-                
             # Sleep 100 ms.
-            time.sleep(0.1)
+            # time.sleep(0.1)
     except:
         traceback.print_exc()
         nrf.power_down()
