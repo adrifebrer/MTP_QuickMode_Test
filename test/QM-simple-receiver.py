@@ -103,7 +103,7 @@ if __name__ == "__main__":
                             outfile.write(r_decoded[:-1])
                             outfile.close()
                             os.system("bash /home/pi/write_usb.sh")
-                    return
+                            return
                     
             # Sleep 100 ms.
             # time.sleep(0.1)
