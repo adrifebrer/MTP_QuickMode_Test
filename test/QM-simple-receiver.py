@@ -55,12 +55,14 @@ if __name__ == "__main__":
     
     # Display the content of NRF24L01 device registers.
     nrf.show_registers()
-
+    
+    flag = True
+    
     # Enter a loop receiving data on the address specified.
     try:
         print(f'Receive from {address}')
         count = 0
-        while True:
+        while flag:
 
             # As long as data is ready for processing, process it.
             while nrf.data_ready():
@@ -103,7 +105,7 @@ if __name__ == "__main__":
                             outfile.write(r_decoded[:-1])
                             outfile.close()
                             os.system("bash /home/pi/write_usb.sh")
-                            return
+                            flag = False
                     
             # Sleep 100 ms.
             # time.sleep(0.1)
