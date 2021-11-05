@@ -80,13 +80,13 @@ if __name__ == "__main__":
                 hex = ':'.join(f'{i:02x}' for i in payload)
 
                 # Show message received as hex.
-                print(f"{now:%Y-%m-%d %H:%M:%S.%f}: pipe: {pipe}, len: {len(payload)}, bytes: {hex}, count: {count}")
+                # print(f"{now:%Y-%m-%d %H:%M:%S.%f}: pipe: {pipe}, len: {len(payload)}, bytes: {hex}, count: {count}")
 
                 # If the length of the message is 9 bytes and the first byte is 0x01, then we try to interpret the bytes
                 # sent as an example message holding a temperature and humidity sent from the "simple-sender.py" program.
                 if len(payload) == 9 and payload[0] == 0x01:
                     values = struct.unpack("<Bff", payload)
-                    print(f'Protocol: {values[0]}, temperature: {values[1]}, humidity: {values[2]}')
+                    # print(f'Protocol: {values[0]}, temperature: {values[1]}, humidity: {values[2]}')
                     a = (int(values[1]).to_bytes(1, 'little'))
                     b = (int(values[2]).to_bytes(1, 'little'))
                     if (count == 1):
@@ -96,7 +96,7 @@ if __name__ == "__main__":
                     # print(received)
                     if (count % 2 == 0):
                         r_decoded = received.decode("utf-32")
-                        print(r_decoded)
+                        # print(r_decoded)
                         # print(r_decoded[-1:])
                         if (r_decoded[-1:]=='%'):
                             print("DONE")
