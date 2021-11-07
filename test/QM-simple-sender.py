@@ -58,12 +58,12 @@ if __name__ == "__main__":
     data = infile.read()
     infile.close
 
-    print(data)
+    # print(data)
     data = data + '%'
-    print(data)
+    # print(data)
 
     datae = data.encode("utf-32")
-    print(datae)
+    # print(datae)
 
     i = 0 
 
@@ -98,7 +98,7 @@ if __name__ == "__main__":
             except TimeoutError:
                 print('Timeout waiting for transmission to complete.')
                 # Wait 10 seconds before sending the next reading.
-                time.sleep(0.2)
+                time.sleep(0.1)
                 continue
             
             if nrf.get_packages_lost() == 0:
@@ -107,7 +107,7 @@ if __name__ == "__main__":
                 print(f"Error: lost={nrf.get_packages_lost()}, retries={nrf.get_retries()}")
 
             # Wait 10 seconds before sending the next reading.
-            time.sleep(0.2)
+            time.sleep(0.1)
     except:
         traceback.print_exc()
         nrf.power_down()
