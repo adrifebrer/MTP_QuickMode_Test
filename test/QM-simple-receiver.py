@@ -19,7 +19,7 @@ import os
 #
 if __name__ == "__main__":
 
-    print("sudo pigpiod")
+    os.system("sudo pigpiod")
     print("Python NRF24 Simple Receiver Example.")
     
     # Parse command line argument.
