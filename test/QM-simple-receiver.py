@@ -96,7 +96,7 @@ if __name__ == "__main__":
                     # print(received)
                     if (count % 2 == 0):
                         r_decoded = received.decode("utf-32")
-                        # print(r_decoded)
+                        print(r_decoded)
                         # print(r_decoded[-1:])
                         if (r_decoded[-1:]=='%'):
                             print("DONE")
