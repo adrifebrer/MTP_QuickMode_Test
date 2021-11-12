@@ -68,7 +68,8 @@ if __name__ == "__main__":
     # data = data + '%@&'
     # print(data)
     print(data)
-    data = data.append(b'\x25\x40\x26')
+    print(type(data))
+    data = data + b'\x25\x40\x26'
     print(data)
     datae = data
 
