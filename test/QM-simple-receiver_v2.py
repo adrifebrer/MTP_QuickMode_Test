@@ -94,8 +94,8 @@ if __name__ == "__main__":
                     else:
                         received += a + b
                     print(received)
-                    # if (count % 2 == 0 and received[-1:] == b'\x29' and count==300):
-                    if (count % 2 == 0 and count==320):
+                    if (count % 2 == 0 and received[-3:] == b'\x25\x40\x26'):
+                    # if (count % 2 == 0 and count==320):
                         print(received)
                         # r_decoded = received.decode("utf-32")
                         # print(r_decoded[-1:], end = '')
