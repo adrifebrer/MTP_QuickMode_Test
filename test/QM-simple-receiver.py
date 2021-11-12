@@ -97,12 +97,12 @@ if __name__ == "__main__":
                     if (count % 2 == 0):
                         r_decoded = received.decode("utf-32")
                         print(r_decoded)
-                        # print(r_decoded[-1:])
-                        if (r_decoded[-1:]=='%'):
+                        # print(r_decoded[-3:])
+                        if (r_decoded[-1:]=='%@&'):
                             print("DONE")
                             filename = "/home/pi/working-directory/a.txt"
                             outfile = open(filename, 'w')
-                            outfile.write(r_decoded[:-1])
+                            outfile.write(r_decoded[:-3])
                             outfile.close()
                             os.system("bash /home/pi/write_usb.sh")
                             flag = False
