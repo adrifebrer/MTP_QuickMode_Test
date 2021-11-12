@@ -95,11 +95,11 @@ if __name__ == "__main__":
             # are a temperature and a humidity (see "simple-receiver.py").
             temperature = datae[i]
             humidity = datae[i+1]
-            i += 2
+            i += 1
 
             print(f'Sensor values: temperature={temperature}, humidity={humidity}')
 
-            payload = struct.pack("<Bff", 0x01, temperature, humidity)
+            payload = struct.pack("<BB", 0x01, temperature)
 
             # Send the payload to the address specified above.
             nrf.reset_packages_lost()
