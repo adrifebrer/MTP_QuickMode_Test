@@ -59,7 +59,7 @@ if __name__ == "__main__":
     infile.close
 
     # print(data)
-    data = data + '%'
+    data = data + '%@&'
     # print(data)
 
     datae = data.encode("utf-32")
