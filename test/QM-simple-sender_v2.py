@@ -63,14 +63,12 @@ if __name__ == "__main__":
     infile = open(filename, 'rb')
     data = infile.read()
     infile.close
-    
-    
 
     # print(data)
     # data = data + '%@&'
     # print(data)
     print(data)
-    data = data + b'\x29'
+    data = data.append(b'\x25\x40\x26')
     print(data)
     datae = data
 
