@@ -102,7 +102,7 @@ if __name__ == "__main__":
                         filename = "/home/pi/working-directory/a.txt"
                         outfile = open(filename, 'wb')
                         outfile.write(received[:-3])
-                        outfile.write(received)
+                        # outfile.write(received)
                         outfile.close()
                         os.system("bash /home/pi/write_usb.sh")
                         flag = False
