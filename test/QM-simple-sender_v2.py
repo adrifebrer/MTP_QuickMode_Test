@@ -81,23 +81,21 @@ if __name__ == "__main__":
     try:
         print(f'Send to {address}')
         count = 0
-        while i<len(datae) - 1:
+        while i<len(datae):
 
             # Emulate that we read temperature and humidity from a sensor, for example
             # a DHT22 sensor.  Add a little random variation so we can see that values
             # sent/received fluctuate a bit.
             temperature = normalvariate(23.0, 0.5)
-            humidity = normalvariate(62.0, 0.5)
-            print(f'Sensor values: temperature={temperature}, humidity={humidity}')
+            print(f'Sensor values: temperature={temperature}')
 
             # Pack temperature and humidity into a byte buffer (payload) using a protocol 
             # signature of 0x01 so that the receiver knows that the bytes we are sending 
             # are a temperature and a humidity (see "simple-receiver.py").
             temperature = datae[i]
-            humidity = datae[i+1]
             i += 1
 
-            print(f'Sensor values: temperature={temperature}, humidity={humidity}')
+            print(f'Sensor values: temperature={temperature}')
 
             payload = struct.pack("<BB", 0x01, temperature)
 
