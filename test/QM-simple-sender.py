@@ -10,6 +10,7 @@ import pigpio
 from nrf24 import *
 
 import os
+import glob
 
 #
 # A simple NRF24L sender that connects to a PIGPIO instance on a hostname and port, default "localhost" and 8888, and
@@ -53,10 +54,17 @@ if __name__ == "__main__":
 
     os.system("bash /home/pi/read_usb.sh")
 
-    filename = "/home/pi/working-directory/a.txt"
+    os.chdir(r'/home/pi/working-directory/')
+    myFiles = glob.glob('*.txt')
+    filename = myFiles[0]
+    print(myFiles)
+    
+    # filename = "/home/pi/working-directory/a.txt"
     infile = open(filename, 'r')
     data = infile.read()
     infile.close
+    
+    
 
     # print(data)
     data = data + '%@&'
