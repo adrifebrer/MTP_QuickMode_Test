@@ -98,7 +98,7 @@ if __name__ == "__main__":
                         r_decoded = received.decode("utf-32")
                         print(r_decoded)
                         # print(r_decoded[-3:])
-                        if (r_decoded[-1:]=='%@&'):
+                        if (r_decoded[-3:]=='%@&'):
                             print("DONE")
                             filename = "/home/pi/working-directory/a.txt"
                             outfile = open(filename, 'w')
